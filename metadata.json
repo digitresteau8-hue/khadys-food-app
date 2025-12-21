@@ -1,0 +1,7 @@
+{
+  "name": "KHADY'S FOOD & EVENT",
+  "description": "Application mobile intelligente pour restaurant africain à Niamey avec gestion de livraison et commande en ligne.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
