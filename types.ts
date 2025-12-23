@@ -7,8 +7,10 @@ export type MenuCategory =
   | 'Plat du Jour' 
   | 'Dessert' 
   | 'Boisson' 
-  | 'Box'
-  | 'Pack';
+  | 'Box Sauce'
+  | 'Box Repas'
+  | 'Pack'
+  | 'Buffet';
 
 export type OrderStatus = 
   | 'RECEIVED' 
@@ -16,7 +18,8 @@ export type OrderStatus =
   | 'PREPARING' 
   | 'READY' 
   | 'DELIVERING' 
-  | 'DELIVERED';
+  | 'DELIVERED'
+  | 'CANCELLED';
 
 export type PaymentMethod = 'CASH' | 'AIRTEL_MONEY' | 'MOOV_MONEY';
 
@@ -34,7 +37,6 @@ export interface MenuItem {
   isPlatDuJour?: boolean;
   isSpécialitéMaison?: boolean;
   isPromo?: boolean;
-  isAnnulated?: boolean;
   includes?: string[]; 
   minPeople?: number;  
 }
@@ -84,15 +86,29 @@ export enum Page {
 export enum AdminView {
   DASHBOARD = 'DASHBOARD',
   ORDERS = 'ORDERS',
-  PLATS = 'PLATS',
-  PACKS = 'PACKS',
-  BOX = 'BOX',
-  LOYALTY = 'LOYALTY',
-  REVIEWS = 'REVIEWS',
+  MENU_MGMT = 'MENU_MGMT',
+  BOX_SAUCES = 'BOX_SAUCES',
+  PACK_BUFFET = 'PACK_BUFFET',
+  CATERING = 'CATERING',
+  LIVREUR = 'LIVREUR',
+  AI_STRATEGY = 'AI_STRATEGY',
+  CLUB_KHADY = 'CLUB_KHADY',
   SETTINGS = 'SETTINGS'
 }
 
 export interface District {
   name: string;
   zone: 'center' | 'periphery';
+}
+
+export interface CateringRequest {
+  id: string;
+  customer_name: string;
+  phone: string;
+  event_type: string;
+  guests_count: number;
+  event_date: string;
+  location: string;
+  details: string;
+  status: 'PENDING' | 'CONTACTED' | 'VALIDATED' | 'COMPLETED';
 }
